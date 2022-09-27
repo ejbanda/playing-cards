@@ -9,7 +9,7 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
-    class ColorFirst implements Comparator<Card> {
+    Comparator<Card> comparator = new Comparator<>() {
 
       @Override
       public int compare(Card card1, Card card2) {
@@ -22,7 +22,7 @@ public class Main {
         }
         return comparison;
       }
-    }
+    };
 
     Deck deck = new Deck();
     System.out.println(deck.toString());
@@ -31,7 +31,7 @@ public class Main {
     System.out.println(deck);
     deck.sort();
     System.out.println(deck);
-    deck.sort(new ColorFirst());
+    deck.sort(comparator);
     System.out.println(deck);
   }
 
